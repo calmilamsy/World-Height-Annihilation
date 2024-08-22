@@ -1,44 +1,41 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "worldheightannihilation",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "World Height Annihilation",
+  "description": "Annihilates your world height and makes it perhaps too configurable.",
   "authors": [
-    "Me!"
+    "calmilamsy"
   ],
   "contact": {
     "homepage": "https://glass-launcher.net/",
-    "sources": "https://github.com/calmilamsy/stationapi-example-mod"
+    "sources": "https://github.com/calmilamsy/World-Height-Annihilation"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/examplemod/icon.png",
+  "icon": "assets/worldheightannihilation/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "net.glasslauncher.example.events.init.AchievementListener",
-      "net.glasslauncher.example.events.init.BlockListener",
-      "net.glasslauncher.example.events.init.ItemListener",
-      "net.glasslauncher.example.events.init.PlayerHandlerListener",
-      "net.glasslauncher.example.events.init.RecipeListener"
     ],
     "stationapi:event_bus_client": [
-      "net.glasslauncher.example.events.init.KeyBindingListener",
-      "net.glasslauncher.example.events.init.TextureListener",
-      "net.glasslauncher.example.events.ingame.KeyPressedListener"
     ],
     "stationapi:event_bus_server": [
-      "net.glasslauncher.example.events.init.ServerInitListener"
+    ],
+    "gcapi": [
+      "net.glasslauncher.mods.worldheightannihilation.AnnihilateMyConfig"
     ]
   },
   "mixins": [
-    "examplemod.mixins.json"
+    "worldheightannihilation.mixins.json"
   ],
 
   "depends": {
-    "minecraft": "1.0.0-beta.7.3"
+    "minecraft": "1.0.0-beta.7.3",
+    "stationapi": "*",
+    "gcapi": "2.*",
+    "modmenu": "*"
   }
 }
