@@ -1,35 +1,45 @@
 package net.glasslauncher.mods.worldheightannihilation;
 
-import blue.endless.jankson.Comment;
-import net.glasslauncher.mods.api.gcapi.api.ConfigName;
-import net.glasslauncher.mods.api.gcapi.api.GConfig;
-import net.glasslauncher.mods.api.gcapi.api.MaxLength;
+import net.glasslauncher.mods.gcapi3.api.ConfigEntry;
+import net.glasslauncher.mods.gcapi3.api.ConfigRoot;
 
 public class AnnihilateMyConfig {
 
-    @GConfig(value = "main", visibleName = "Annihilate My World")
+    @ConfigRoot(value = "main", visibleName = "Annihilate My World")
     public static final Config INSTANCE = new Config();
 
     public static class Config {
 
-        @ConfigName("Overworld Height")
-        @MaxLength(1024) // Any higher and you're just asking for issues.
-        @Comment("Maximum of 1024.")
+        @ConfigEntry(
+                name = "Overworld Height",
+                description = "Maximum of 1024.",
+                minLength = 16,
+                maxLength = 1024
+        )
         public Integer overworldHeight = 128;
 
-        @ConfigName("Overworld Y Negative Offset")
-        @MaxLength(896)
-        @Comment("Sinks the world down by this value into the negatives. Adjust height accordingly.")
+        @ConfigEntry(
+                name = "Overworld Y Offset",
+                description = "Offsets the world Y value by this amount. Adjust height accordingly.",
+                minLength = -1024,
+                maxLength = 1024
+        )
         public Integer minOverworldY = 0;
 
-        @ConfigName("Nether Height")
-        @MaxLength(1024) // Any higher and you're just asking for issues.
-        @Comment("Maximum of 1024.")
+        @ConfigEntry(
+                name = "Nether Height",
+                description = "Maximum of 1024.",
+                minLength = 16,
+                maxLength = 1024
+        )
         public Integer netherHeight = 128;
 
-        @ConfigName("Nether Y Negative Offset")
-        @MaxLength(896)
-        @Comment("Sinks the world down by this value into the negatives. Adjust height accordingly.")
+        @ConfigEntry(
+                name = "Nether Y Offset",
+                minLength = -1024,
+                maxLength = 1024,
+                description = "Offsets the world Y value by this amount. Adjust height accordingly."
+        )
         public Integer minNetherY = 0;
     }
 }
